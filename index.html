@@ -4,147 +4,212 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clikk</title>
-<meta name="description" content="Clikk gjør det lett for vennegjenger som er ute å finne andre gjenger å henge med. Lukket beta.">
-<meta name="theme-color" content="#121113">
+<meta name="description" content="Ute i kveld med gjengen? Clikk med en annen gjeng. Lukket beta.">
+<meta name="theme-color" content="#E8D5B5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap">
 <style>
-/* Layout: single-column landing, phone mock beside the headline on wide screens, stacked on phones. Committed dark look in the brand colors. */
+/* Layout: beige hero slab with a giant headline and phone, a scrolling strip of Trondheim areas, then dark sections. Committed two-tone look. */
 :root{
   --bg:#121113; --card:#1E1C1F; --card2:#2A272B; --line:#343036;
-  --fg:#F5F1EA; --mut:#ACA69C; --beige:#E8D5B5; --beige2:#CDB791; --ink:#1B1610; --coral:#FF7A59; --lilac:#B79CFF;
+  --fg:#F5F1EA; --mut:#ACA69C; --beige:#E8D5B5; --beige2:#CDB791; --ink:#1B1610; --ink2:#4C412F;
+  --sand:#8C7451; --lilac:#B79CFF;
   --display:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;
   --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--beige);outline-offset:3px}
-.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:22px}
-.logo{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-1.2px;color:var(--beige);text-decoration:none}
-.logo span{color:var(--coral)}
-.beta{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:6px 12px;font-size:13px;color:var(--beige)}
-.beta i{width:7px;height:7px;border-radius:50%;background:var(--coral);display:inline-block}
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-block:32px 56px}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(44px,8vw,84px);line-height:.95;letter-spacing:-2.5px;margin:0 0 20px;text-wrap:balance}
-h1 em{font-style:normal;color:var(--beige)}
-.lead{font-size:19px;color:var(--mut);max-width:34ch;margin:0 0 28px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+:focus-visible{outline:2px solid var(--beige2);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
+
+/* hero */
+.top{background:var(--beige);color:var(--ink);padding-top:env(safe-area-inset-top,0px);border-radius:0 0 36px 36px;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px}
+.logo{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:-1.4px;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--sand)}
+.beta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--beige);border-radius:30px;padding:6px 13px;font-size:13px;font-weight:500}
+.beta i{width:7px;height:7px;border-radius:50%;background:var(--beige);display:inline-block;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.3}}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:end;padding-block:28px 0}
+.kicker{display:inline-block;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin:0 0 14px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(52px,10vw,120px);line-height:.88;letter-spacing:-.045em;margin:0 0 22px;text-wrap:balance}
+h1 .hl{color:var(--sand)}
+.lead{font-size:19px;color:var(--ink2);max-width:36ch;margin:0 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:44px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:14px 20px;font-weight:700;font-size:15px;text-decoration:none;border:none}
-.btn.main{background:var(--beige);color:var(--ink)}
-.btn.ghost{background:var(--card2);color:var(--fg)}
-.note{font-size:13px;color:var(--mut);margin:14px 0 0}
-.phone{justify-self:center;width:100%;max-width:300px;background:#0C0B0D;border:1px solid var(--line);border-radius:38px;padding:14px;transform:rotate(3deg)}
-.screen{background:var(--bg);border-radius:28px;padding:16px 14px;display:flex;flex-direction:column;gap:10px}
+.btn.dark{background:var(--ink);color:var(--beige)}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.phone{justify-self:center;width:100%;max-width:290px;background:#0C0B0D;border-radius:40px 40px 0 0;padding:14px 14px 0;margin-bottom:-2px}
+.screen{background:var(--bg);color:var(--fg);border-radius:28px 28px 0 0;padding:16px 14px 20px;display:flex;flex-direction:column;gap:10px}
 .s-top{display:flex;justify-content:space-between;align-items:center}
-.s-logo{font-family:var(--display);font-weight:700;font-size:22px;color:var(--beige);letter-spacing:-1px}
+.s-logo{font-family:var(--display);font-weight:800;font-size:22px;color:var(--beige);letter-spacing:-1px}
 .pill{background:var(--card);border-radius:20px;padding:4px 10px;font-size:11px;color:var(--beige)}
 .s-hero{background:var(--beige);color:var(--ink);border-radius:18px;padding:14px}
-.s-hero b{font-family:var(--display);font-size:21px;line-height:1.05;display:block;letter-spacing:-.5px}
+.s-hero b{font-family:var(--display);font-size:20px;line-height:1.05;display:block;letter-spacing:-.5px}
 .s-hero span{display:block;background:var(--ink);color:var(--beige);border-radius:10px;padding:8px;text-align:center;font-size:12px;font-weight:700;margin-top:10px}
 .s-card{background:var(--card);border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:6px}
+.s-row{display:flex;justify-content:space-between;align-items:center}
 .avs{display:flex}
 .av{width:26px;height:26px;border-radius:50%;border:2px solid var(--card);margin-right:-7px;font-size:11px;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
-.s-row{display:flex;justify-content:space-between;align-items:center}
-.small{font-size:11px;color:var(--mut)}
+.live{font-size:11px;color:var(--beige);display:inline-flex;align-items:center;gap:5px}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--beige);display:inline-block;animation:blink 1.6s infinite}
 .s-btn{background:var(--beige);color:var(--ink);border-radius:9px;padding:7px;text-align:center;font-size:12px;font-weight:700}
-section{padding-block:56px;border-top:1px solid var(--line)}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.5vw,44px);letter-spacing:-1px;line-height:1.05;margin:0 0 28px;text-wrap:balance}
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
-.step{background:var(--card);border-radius:20px;padding:22px;min-width:0}
-.step b{display:block;font-family:var(--display);font-size:20px;margin:10px 0 6px}
+
+/* strip */
+.strip{overflow:hidden;padding-block:22px;border-bottom:1px solid var(--line)}
+.track{display:flex;gap:28px;width:max-content;animation:slide 32s linear infinite}
+.track span{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:-1px;white-space:nowrap;color:var(--fg)}
+.track span.o{color:transparent;-webkit-text-stroke:1.2px var(--beige)}
+.track b{color:var(--beige2);font-size:30px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding-block:64px}
+section+section{border-top:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--beige2);margin:0 0 10px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.5vw,56px);letter-spacing:-.035em;line-height:1;margin:0 0 32px;text-wrap:balance}
+h2 em{font-style:normal;color:var(--beige)}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.step{background:var(--card);border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.step .n{font-family:var(--display);font-weight:800;font-size:56px;line-height:.8;color:var(--beige);letter-spacing:-2px}
+.step b{font-family:var(--display);font-size:22px;letter-spacing:-.5px}
 .step p{margin:0;color:var(--mut);font-size:15px}
-.num{font-family:var(--display);font-weight:700;color:var(--ink);background:var(--beige);border-radius:10px;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center}
+.mini{margin-top:auto;background:var(--bg);border-radius:14px;padding:10px 12px;font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mini .tag{background:var(--beige);color:var(--ink);font-weight:700;border-radius:8px;padding:3px 8px;font-size:12px}
+.mini .tag.c{background:var(--fg)}
 .safe{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.safe div{display:flex;gap:14px;align-items:flex-start;background:var(--card);border-radius:18px;padding:18px;min-width:0}
-.safe svg{flex:none;width:24px;height:24px;stroke:var(--beige);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
-.safe b{display:block;margin-bottom:2px}
-.safe p{margin:0;color:var(--mut);font-size:14px}
-.band{background:var(--beige);color:var(--ink);border-radius:26px;padding:34px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
-.band h2{margin:0;color:var(--ink)}
-.band p{margin:6px 0 0;color:#4C412F}
-.band .btn{background:var(--ink);color:var(--beige)}
-footer{padding-block:32px 40px;color:var(--mut);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-@media (max-width:760px){
-  .hero{grid-template-columns:1fr;gap:36px;padding-block:16px 40px}
-  .phone{transform:none;max-width:280px}
-  .steps,.safe{grid-template-columns:1fr}
-  section{padding-block:44px}
+.safe div{display:flex;gap:14px;align-items:flex-start;background:var(--card);border-radius:20px;padding:20px;min-width:0}
+.ic{flex:none;width:44px;height:44px;border-radius:14px;background:var(--beige);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.safe b{display:block;font-size:17px;margin-bottom:2px}
+.safe p{margin:0;color:var(--mut);font-size:15px}
+.not{margin-top:14px;background:transparent;border:1.5px dashed var(--beige2);border-radius:20px;padding:18px 20px;color:var(--fg)}
+.not b{color:var(--beige)}
+.faq{display:flex;flex-direction:column;gap:10px;max-width:760px}
+details{background:var(--card);border-radius:18px;padding:4px 20px}
+summary{cursor:pointer;list-style:none;font-weight:700;font-size:17px;padding-block:16px;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:24px;line-height:1;color:var(--beige)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 18px;color:var(--mut)}
+.contact{background:var(--card);border-radius:28px;padding:30px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+.contact h2{margin:0 0 6px}
+.contact p{margin:0;color:var(--mut)}
+.mail{font-family:var(--display);font-weight:800;font-size:clamp(20px,3.4vw,30px);color:var(--beige);text-decoration:none;overflow-wrap:anywhere;letter-spacing:-.5px}
+.team{background:var(--beige);color:var(--ink);border-radius:28px;padding:30px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;margin-top:14px}
+.team h2{margin:0;color:var(--ink);font-size:clamp(28px,4.5vw,44px)}
+.team p{margin:6px 0 0;color:var(--ink2)}
+.team .btn{background:var(--ink);color:var(--beige)}
+footer{padding-block:28px calc(36px + env(safe-area-inset-bottom,0px));color:var(--mut);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--line)}
+footer a{text-decoration:none}
+
+@media (max-width:780px){
+  .hero{grid-template-columns:1fr;gap:8px}
+  .cta{padding-bottom:30px}
+  .phone{max-width:270px}
+  .flow,.safe{grid-template-columns:1fr}
+  section{padding-block:48px}
+  .track span,.track b{font-size:24px}
 }
-@media (prefers-reduced-motion:no-preference){.phone{transition:transform .4s}.phone:hover{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.track,.beta i,.live i{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <a class="logo" href="#" aria-label="Clikk">clikk<span>.</span></a>
-    <span class="beta"><i></i>Lukket beta</span>
-  </header>
-
-  <main>
+<div class="top">
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#" aria-label="Clikk">clikk<span>.</span></a>
+      <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end"><span class="beta"><i></i>Lukket beta</span><a class="btn dark" style="padding:9px 14px;font-size:14px" href="https://claude.ai/artifact/9xjkMh56oCUronRJuQwVaw" rel="noopener">Åpne appen</a></span>
+    </header>
     <div class="hero">
       <div>
-        <h1>Ute i kveld? <em>Finn gjengen.</em></h1>
-        <p class="lead">Clikk gjør det lett for vennegjenger som er ute å finne andre gjenger å henge med. Bare grupper, bare verifiserte brukere.</p>
+        <p class="kicker">Ute i kveld med gjengen?</p>
+        <h1>Clikk med en <span class="hl">annen gjeng.</span></h1>
+        <p class="lead">Legg ut at dere er ute, se hvem andre som er i nærheten, og møt en ny gjeng samme kveld.</p>
         <div class="cta">
-          <a class="btn main" href="https://www.instagram.com/getclikk/" rel="noopener">Følg oss på Instagram</a>
-          <a class="btn ghost" href="#team">For teamet</a>
+          <a class="btn dark" href="#hvordan">Se hvordan det funker</a>
+          <a class="btn line" href="#kontakt">Kontakt oss</a>
         </div>
-        <p class="note">Clikk er i lukket beta. Registrering åpner våren 2027.</p>
       </div>
-
       <div class="phone" aria-hidden="true">
         <div class="screen">
           <div class="s-top"><span class="s-logo">clikk</span><span class="pill">Solsiden</span></div>
           <div class="s-hero"><b>Vi skal ut i kveld</b><span>Legg ut at vi er ute</span></div>
+          <div class="s-row" style="font-size:12px;color:#ACA69C"><span>Ute nå · 12 gjenger</span><span class="live"><i></i>live</span></div>
           <div class="s-card">
-            <div class="s-row"><span class="avs"><span class="av" style="background:#E8D5B5">A</span><span class="av" style="background:#FF7A59">J</span><span class="av" style="background:#B79CFF">M</span><span class="av" style="background:#CDB791">S</span></span><span class="small" style="color:#E8D5B5">Verifisert</span></div>
+            <div class="s-row"><span class="avs"><span class="av" style="background:#E8D5B5">A</span><span class="av" style="background:#F5F1EA">J</span><span class="av" style="background:#B79CFF">M</span><span class="av" style="background:#CDB791">S</span></span><span class="small" style="font-size:11px;color:#E8D5B5">Verifisert</span></div>
             <b style="font-size:14px">4 stk · aktive nå</b>
             <span class="s-btn">Send forespørsel</span>
           </div>
           <div class="s-card">
-            <div class="s-row"><span class="avs"><span class="av" style="background:#B79CFF">E</span><span class="av" style="background:#E8D5B5">K</span></span><span class="small" style="color:#E8D5B5">Verifisert</span></div>
+            <div class="s-row"><span class="avs"><span class="av" style="background:#B79CFF">E</span><span class="av" style="background:#E8D5B5">K</span></span><span style="font-size:11px;color:#E8D5B5">Verifisert</span></div>
             <b style="font-size:14px">2 stk · for 12 min siden</b>
-            <span class="s-btn">Send forespørsel</span>
           </div>
         </div>
       </div>
     </div>
-
-    <section aria-labelledby="hvordan">
-      <h2 id="hvordan">Sånn funker det</h2>
-      <div class="steps">
-        <div class="step"><span class="num">1</span><b>Lag gjengen</b><p>Legg til vennene dine og velg hvor mange dere er.</p></div>
-        <div class="step"><span class="num">2</span><b>Si at dere er ute</b><p>Velg området dere er i. Andre ser bare området, aldri nøyaktig posisjon.</p></div>
-        <div class="step"><span class="num">3</span><b>Clikk med en annen gjeng</b><p>Send eller godta en forespørsel, så åpnes en felles gruppechat.</p></div>
-      </div>
-    </section>
-
-    <section aria-labelledby="trygt">
-      <h2 id="trygt">Laget for å være trygt</h2>
-      <div class="safe">
-        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><b>Alle er verifisert</b><p>Alder med Vipps og bildeverifisering, så du vet at folk er den de sier.</p></span></div>
-        <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 6M18 14c1.8.8 3 2.6 3 5"/></svg><span><b>Bare jevnaldrende</b><p>Aldersgrupper med nedre og øvre grense. Voksne kan ikke kontakte yngre.</p></span></div>
-        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span><b>Gruppe til gruppe</b><p>Ingen private meldinger mellom fremmede, bare chat mellom gjenger.</p></span></div>
-        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-2 4 2 4H5"/></svg><span><b>Rapporter med ett trykk</b><p>Moderatorer følger med, og du kan alltid blokkere eller skjule gjengen.</p></span></div>
-      </div>
-    </section>
-
-    <section id="team" aria-labelledby="teamh">
-      <div class="band">
-        <div><h2 id="teamh">Er du på teamet?</h2><p>Betaen er bare åpen for moderatorer og admins akkurat nå.</p></div>
-        <a class="btn" href="https://claude.ai/artifact/9xjkMh56oCUronRJuQwVaw" rel="noopener" id="staffLink">Logg inn for teamet</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <span>© 2026 Clikk · Lukket beta</span>
-    <span>getclikk.com</span>
-  </footer>
+  </div>
 </div>
+
+<div class="strip" aria-hidden="true">
+  <div class="track">
+    <span>Solsiden</span><b>✦</b><span class="o">Bakklandet</span><b>✦</b><span>Torvet</span><b>✦</b><span class="o">Nedre Elvehavn</span><b>✦</b><span>Midtbyen</span><b>✦</b><span class="o">Brattøra</span><b>✦</b>
+    <span>Solsiden</span><b>✦</b><span class="o">Bakklandet</span><b>✦</b><span>Torvet</span><b>✦</b><span class="o">Nedre Elvehavn</span><b>✦</b><span>Midtbyen</span><b>✦</b><span class="o">Brattøra</span><b>✦</b>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="hvordan" aria-labelledby="h-hvordan">
+    <p class="eyebrow">Sånn funker det</p>
+    <h2 id="h-hvordan">Tre trykk fra <em>en ny gjeng.</em></h2>
+    <div class="flow">
+      <div class="step"><span class="n">1</span><b>Lag gjengen</b><p>Legg til kompisene dine. To, tre, fire, eller hele gjengen.</p><div class="mini"><span>Gjengen din</span><span class="tag">4 stk</span></div></div>
+      <div class="step"><span class="n">2</span><b>Si at dere er ute</b><p>Velg området. Andre ser bare området, aldri hvor dere står.</p><div class="mini"><span>Ute på Solsiden</span><span class="tag c">live</span></div></div>
+      <div class="step"><span class="n">3</span><b>Clikk</b><p>Send eller godta en forespørsel, så åpnes en gruppechat mellom gjengene.</p><div class="mini"><span>3 stk vil henge</span><span class="tag">Vi er med</span></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-trygt">
+    <p class="eyebrow">Trygghet først</p>
+    <h2 id="h-trygt">Bygget for å <em>være trygt.</em></h2>
+    <div class="safe">
+      <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Alle blir sjekket</b><p>Alder og bilde sjekkes, så folk er den de sier.</p></span></div>
+      <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 6M18 14c1.8.8 3 2.6 3 5"/></svg></span><span><b>Under 18 og over 18 møtes aldri</b><p>Clikk er for 15–30 år, delt i faste aldersgrupper. Du ser og kan bare kontakte gjenger i din egen gruppe, og ungdom under 18 er alltid helt adskilt fra voksne.</p></span></div>
+      <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><span><b>Gjeng til gjeng</b><p>Ingen private meldinger mellom fremmede, bare chat mellom gjenger.</p></span></div>
+      <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><span><b>Rapporter med ett trykk</b><p>Moderatorer følger med, og du kan alltid blokkere eller skjule gjengen.</p></span></div>
+    </div>
+    <p class="not">Få gjengen vekk fra den samme kjedelige hangout-spotten, og møt andre vennegrupper. Kanskje finner dere tonen? <b>Clikk sammen, nå!</b></p>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <p class="eyebrow">Spørsmål</p>
+    <h2 id="h-faq">Lurer du på noe?</h2>
+    <div class="faq">
+      <details><summary>Når kan jeg laste ned Clikk?</summary><p>Clikk er i lukket beta nå. Vi åpner for alle våren 2027.</p></details>
+      <details><summary>Hvem kan bruke Clikk?</summary><p>Clikk er for deg mellom 15 og 30 år. Du ser bare gjenger i din egen aldersgruppe: 15–17, 18–21, 22–25 eller 26–30.</p></details>
+      <details><summary>Kan voksne kontakte ungdom på Clikk?</summary><p>Nei. Alle under 18 er i en egen aldersgruppe, og voksne kan verken se eller sende melding til dem. Vi tar bildesjekker underveis og utestenger alle som prøver å lure systemet.</p></details>
+      <details><summary>Ser andre hvor jeg er?</summary><p>Nei. Andre ser bare området dere har valgt, for eksempel «Solsiden», aldri nøyaktig posisjon eller adresse.</p></details>
+      <details><summary>Hva om noen oppfører seg dårlig?</summary><p>Du kan rapportere eller blokkere med ett trykk, og moderatorene våre følger opp.</p></details>
+    </div>
+  </section>
+
+  <section id="kontakt" aria-labelledby="h-kontakt">
+    <div class="contact">
+      <div><h2 id="h-kontakt">Spørsmål eller support?</h2><p>Send oss en e-post, så svarer vi så fort vi kan.</p></div>
+      <a class="mail" href="mailto:getclikk.com@gmail.com">getclikk.com@gmail.com</a>
+    </div>
+    <div class="team" id="team">
+      <div><h2>Er du på teamet?</h2><p>Betaen er åpen for moderatorer og admins. Logg inn eller lag bruker med staff-e-posten din.</p></div>
+      <a class="btn dark" href="https://claude.ai/artifact/9xjkMh56oCUronRJuQwVaw" rel="noopener">Åpne appen</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Clikk · Lukket beta</span>
+  <a href="mailto:getclikk.com@gmail.com">getclikk.com@gmail.com</a>
+</footer>
 </body>
 </html>
